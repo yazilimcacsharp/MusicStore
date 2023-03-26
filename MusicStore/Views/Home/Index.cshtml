@@ -1,0 +1,60 @@
+﻿@model MusicStore.ViewModels.AlbumEncokSatanlarViewModel
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="main-banner" id="top">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-2">
+                <ul>
+                    @foreach (var item in Model.MuzikTurleri)
+                    {
+                        <li><a href="/Store/Browse?genre=@item.Name">@item.Name</a></li>
+                    }
+                </ul>
+            </div>
+            <div class="col-lg-10">
+                <div class="right-content">
+                    <div class="row" style="display:flex;justify-content:center;">
+
+                        @foreach (var item in Model.MuzikTurleri)
+                        {
+                            <div class="col-lg-2">
+                                <div class="right-first-image">
+                                    <div class="thumb">
+                                        <div class="inner-content">
+                                            <h4>@item.Name</h4>
+                                        </div>
+                                        <div class="hover-content">
+                                            <div class="inner">
+                                                <h4>@item.Name</h4>
+                                                <div class="main-border-button">
+                                                    <a href="~/Store/Browse?genre=@item.Name">Discover More</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <img src=@item.Path>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    </div>
+
+                    <ul id="album-list" style="display: flex;justify-content: center;">
+                        @foreach (var album in Model.EnCokSatanAlbumler)
+                        {
+                            <li class="m-1">
+                                <a href="@Url.Action("Details", "Store", new { id = album.AlbumId })">
+                                    <img alt="@album.Title" src="@album.AlbumArtUrl" style="height:200px; width:200px;" />
+                                    <p>@album.Title</p>
+                                </a>
+                            </li>
+                        }
+                    </ul>                   
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

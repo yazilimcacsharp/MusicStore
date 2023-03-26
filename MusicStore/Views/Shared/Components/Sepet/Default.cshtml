@@ -1,0 +1,6 @@
+﻿@model int
+@*@inject MusicStore.Data.MusicStoreEntities _context*@
+@*@_context.Genres.ToList().Count();*@
+
+
+@Html.ActionLink("Sepet("+@Model+")","Index","ShoppingCart",new {id="cart-status"})

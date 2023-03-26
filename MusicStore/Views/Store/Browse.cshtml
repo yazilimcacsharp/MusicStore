@@ -1,0 +1,16 @@
+﻿@model MusicStore.Models.Genre
+@{
+    ViewBag.Title = "Browse";
+}
+
+<h2>Browsing Genre: @Model.Name</h2>
+<ul>
+    @foreach (var album in Model.Albums)
+    {
+        <li>
+            @*@album.Title*@
+            @Html.ActionLink(album.Title, "Details", new { id = album.AlbumId }) 
+            @*actionlink a href olarak değişir.*@
+        </li>
+    }
+</ul>
